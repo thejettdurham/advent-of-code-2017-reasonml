@@ -4,4 +4,18 @@ let logMe = x => {
   x;
 };
 
-let intAdd = (x, y) => x + y;
+module Int = {
+  let add = (x, y) => x + y;
+  let subtract = (l, r) => l - r;
+  let areEvenlyDivisible = (dividend, divisor) => dividend mod divisor == 0;
+};
+
+module List = {
+  let last = x => x |> List.rev |> List.hd;
+};
+
+module Fn = {
+  module Binary = {
+    let apply = (f, (x, y)) => f(x, y);
+  };
+};

@@ -14,9 +14,9 @@ var nums = List.map(Caml_format.caml_int_of_string, $$Array.to_list(Fs.readFileS
 var numsCount = List.length(nums);
 
 function solveCaptchaGivenIdxTrasformer(xform) {
-  return List.fold_left(Util$Aoc2017Reasonml.intAdd, 0, List.mapi((function (idx, num) {
-                    var nextNum = List.nth(nums, Caml_int32.mod_(Curry._1(xform, idx), numsCount));
-                    var match = num === nextNum;
+  return List.fold_left(Util$Aoc2017Reasonml.Int[/* add */0], 0, List.mapi((function (idx, num) {
+                    var next = List.nth(nums, Caml_int32.mod_(Curry._1(xform, idx), numsCount));
+                    var match = num === next;
                     if (match) {
                       return num;
                     } else {
@@ -25,14 +25,18 @@ function solveCaptchaGivenIdxTrasformer(xform) {
                   }), nums));
 }
 
+var partial_arg = Util$Aoc2017Reasonml.Int[/* add */0];
+
 var part1 = solveCaptchaGivenIdxTrasformer((function (param) {
-        return Util$Aoc2017Reasonml.intAdd(1, param);
+        return partial_arg(1, param);
       }));
 
-var partial_arg = numsCount / 2 | 0;
+var partial_arg$1 = numsCount / 2 | 0;
+
+var partial_arg$2 = Util$Aoc2017Reasonml.Int[/* add */0];
 
 var part2 = solveCaptchaGivenIdxTrasformer((function (param) {
-        return Util$Aoc2017Reasonml.intAdd(partial_arg, param);
+        return partial_arg$2(partial_arg$1, param);
       }));
 
 console.log("Part 1: " + String(part1));

@@ -14,10 +14,10 @@ let solveCaptchaGivenIdxTrasformer = xform =>
        |> List.nth(nums)
        |> (next => num == next ? num : 0)
      )
-  |> List.fold_left(Util.intAdd, 0);
+  |> List.fold_left(Util.Int.add, 0);
 
-let part1 = solveCaptchaGivenIdxTrasformer(Util.intAdd(1));
-let part2 = solveCaptchaGivenIdxTrasformer(Util.intAdd(numsCount / 2));
+let part1 = solveCaptchaGivenIdxTrasformer(Util.Int.add(1));
+let part2 = solveCaptchaGivenIdxTrasformer(Util.Int.add(numsCount / 2));
 
 Js.log("Part 1: " ++ string_of_int(part1));
 Js.log("Part 2: " ++ string_of_int(part2));
