@@ -7,14 +7,13 @@ let nums =
 let numsCount = List.length(nums);
 
 let solveCaptchaGivenIdxTrasformer = xform =>
-  List.mapi(
-    (idx, num) => {
-      let nextNum = xform(idx) mod numsCount |> List.nth(nums);
-
-      num == nextNum ? num : 0;
-    },
-    nums,
-  )
+  nums
+  |> List.mapi((idx, num) =>
+       xform(idx)
+       mod numsCount
+       |> List.nth(nums)
+       |> (next => num == next ? num : 0)
+     )
   |> List.fold_left(Util.intAdd, 0);
 
 let part1 = solveCaptchaGivenIdxTrasformer(Util.intAdd(1));
