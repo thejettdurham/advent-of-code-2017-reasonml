@@ -25,18 +25,16 @@ function solveCaptchaGivenIdxTrasformer(xform) {
                   }), nums));
 }
 
-var partial_arg = Util$Aoc2017Reasonml.Int[/* add */0];
-
-var part1 = solveCaptchaGivenIdxTrasformer((function (param) {
-        return partial_arg(1, param);
+var part1 = solveCaptchaGivenIdxTrasformer((function (prim) {
+        return prim + 1 | 0;
       }));
 
-var partial_arg$1 = numsCount / 2 | 0;
+var partial_arg = numsCount / 2 | 0;
 
-var partial_arg$2 = Util$Aoc2017Reasonml.Int[/* add */0];
+var partial_arg$1 = Util$Aoc2017Reasonml.Int[/* add */0];
 
 var part2 = solveCaptchaGivenIdxTrasformer((function (param) {
-        return partial_arg$2(partial_arg$1, param);
+        return partial_arg$1(partial_arg, param);
       }));
 
 console.log("Part 1: " + String(part1));
